@@ -16,7 +16,7 @@ int main(){
     int Amor;
     Amor = (Soma * 7) % 101;
 
-    if (Amor >= 90){
+    if (Amor >= 80){
         printf ("Amor: %d%% Um dia deslumbrantemente lindo para amar. Ps: Cuidado com a intensidade.\n", Amor);
     }
     else if (Amor >= 70 && Amor <= 80){
@@ -44,7 +44,7 @@ int main(){
     int Sorte;
     Sorte = (((SomaSorteDias + SomaSorteMes) * 9) + DiferencaAnos) % 101;
 
-    if (Sorte >= 90){
+    if (Sorte > 90){
         printf ("Sorte: %d%% Nao tenha medo de virar cartas hoje. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
     }
     else if (Sorte >= 80 && Sorte <= 90){
@@ -69,13 +69,13 @@ int main(){
     if (Trabalho >= 85){
         printf ("Trabalho: %d%% Use do maximo de networking possível hoje, dia bom para negocios.\n", Trabalho);
     }
-    else if (Trabalho >= 84 && Trabalho <= 70){
+    else if (Trabalho <= 84 && Trabalho >= 70){
         printf ("Trabalho: %d%% Boas vibracoes hoje, chances podem estar ao seu redor.\n", Trabalho);
     }
-    else if (Trabalho >= 51 && Trabalho <= 69){
+    else if (Trabalho <= 51 && Trabalho >= 69){
         printf ("Trabalho: %d%% Um dia proveitoso com certeza, leve sua simpatia consigo.\n", Trabalho);
     }
-    else if (Trabalho >= 40 && Trabalho <= 50){
+    else if (Trabalho <= 40 && Trabalho >= 50){
         printf ("Trabalho: %d%% Segura a emocao, nao xinga ninguem, nao esquece de beber agua.\n", Trabalho);
     }
     else {
