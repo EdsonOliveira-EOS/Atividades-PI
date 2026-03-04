@@ -1,6 +1,5 @@
 // Felizmente não usei nenhuma fonte nessa questão, eu tive ajuda de amigos que corrigiram coisas bobas para mim e usei ajuda dos monitores, mas fora isso, não tive complicações na qual precisei do uso de IA ou de conteúdo WEB, tirando algumas coisas bobas como ''como colocar % no printf'. Bem, é isso.
 
-
 #include <stdio.h>
 #include <math.h>
 
