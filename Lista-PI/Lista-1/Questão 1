@@ -6,31 +6,28 @@
 int main(){
 
     int aniverdia, anivermes, aniverano, atualdia, atualmes, atualano;
-    int Soma, Amor, Sorte, Trabalho, Cor;
     scanf("%d/%d/%d %d/%d/%d", &aniverdia, &anivermes, &aniverano, &atualdia, &atualmes, &atualano);
-
 
     // ------------------------------------------------------------------------------------------------------------------------
     // Amor
+    int Soma;
     Soma = aniverdia + anivermes + aniverano + atualdia + atualmes + atualano;
+    
+    int Amor;
     Amor = (Soma * 7) % 101;
 
     if (Amor >= 90){
         printf ("Amor: %d%% Um dia deslumbrantemente lindo para amar. Ps: Cuidado com a intensidade.\n", Amor);
     }
-
     else if (Amor >= 70 && Amor <= 80){
         printf ("Amor: %d%% Saia com o coracao aberto, mas lembre, nem toda troca de olhar em onibus e sinal de romance.\n", Amor);
     }
-
     else if (Amor >= 41 && Amor <= 69){
         printf ("Amor: %d%% Se o papo e as ideias baterem, esta liberado pensar em algo.", Amor);
     }
-
     else if (Amor >= 20 && Amor <= 40){
         printf ("Amor: %d%% Melhor manter o coracao <3 longe de perigo.\n", Amor);
     }
-
     else{ 
         printf ("Amor: %d%% Pessimo dia para se apaixonar.\n", Amor);
     }
@@ -39,30 +36,26 @@ int main(){
     // Sorte
 
     int SomaSorteDias, SomaSorteMes, DiferencaAnos;
-    SomaSorteDias = (aniverdia + atualdia) * 7;
-    SomaSorteMes = (anivermes + atualmes) * 7;
+    SomaSorteDias = (aniverdia + atualdia);
+    SomaSorteMes = (anivermes + atualmes);
 
-    DiferencaAnos = atualano - atualdia;
+    DiferencaAnos = atualano - aniverano;
 
     int Sorte;
-    Sorte = (SomaSorteDias + SomaSorteMes + DiferencaAnos) % 101;
+    Sorte = (((SomaSorteDias + SomaSorteMes) * 9) + DiferencaAnos) % 101;
 
     if (Sorte >= 90){
         printf ("Sorte: %d%% Nao tenha medo de virar cartas hoje. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
     }
-
     else if (Sorte >= 80 && Sorte <= 90){
         printf ("Sorte: %d%% Hoje vale a pena arriscar. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
     }
-
     else if (Sorte >= 51 && Sorte <= 79){
         printf ("Sorte: %d%% Por sua conta em risco. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
     }
-
     else if (Sorte >= 30 && Sorte <= 50){
         printf ("Sorte: %d%% Melhor nao arriscar. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
     }
-
     else {
         printf ("Sorte: %d%% Nem jogue moedas pra cima hoje. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
     }
@@ -70,9 +63,8 @@ int main(){
     // ------------------------------------------------------------------------------------------------------------------------
     // Trabalho
 
-    int trabalho;
-
-    Trabalho = (aniverano + atualano) - ((atualdia + aniverdia + anivermes + atualano) * 8) % 101;
+    int Trabalho;
+    Trabalho = ((aniverano + atualano) - ((atualdia + aniverdia + anivermes + atualmes) * 8)) % 101;
 
     if (Trabalho >= 85){
         printf ("Trabalho: %d%% Use do maximo de networking possível hoje, dia bom para negocios.\n", Trabalho);
@@ -91,43 +83,42 @@ int main(){
     }
 
     // ------------------------------------------------------------------------------------------------------------------------
-    // Trabalho
+    // Cor
 
     int Cor;
+    Cor = ((aniverdia * aniverdia) + (atualdia * atualdia) + (anivermes * anivermes) + (atualmes * atualmes) + (aniverano * aniverano) + (atualano * atualano)) % 11;
 
-    Cor = ((aniverdia * aniverdia)) + ((atualdia * atualdia) + (anivermes * anivermes) + (atualmes * atualmes) + (aniverano * aniverano) + (atualano * atualano)) % 11;
-
-    if (Cor = 0){
+    if (Cor == 0){
         printf ("Cor: Branco.");
     }
-    else if (Cor = 1){
+    else if (Cor == 1){
         printf ("Cor: Vermelho.");
     }
-    else if (Cor = 2){
+    else if (Cor == 2){
         printf ("Cor: Laranja.");
     }
-    else if (Cor = 3){
+    else if (Cor == 3){
         printf ("Cor: Amarelo");
     }
-    else if (Cor = 4){
+    else if (Cor == 4){
         printf ("Cor: Verde");
     }
-    else if (Cor = 5){
+    else if (Cor == 5){
         printf ("Cor: Azul");
     }
-    else if (Cor = 6){
+    else if (Cor == 6){
         printf ("Cor: Roxo");
     }
-    else if (Cor = 7){
+    else if (Cor == 7){
         printf ("Cor: Marrom");
     }
-    else if (Cor = 8){
+    else if (Cor == 8){
         printf ("Cor: Rosa");
     }
-    else if (Cor = 9){
+    else if (Cor == 9){
         printf ("Cor: Preto");
     }
-    else if (Cor = 10){
+    else if (Cor == 10){
         printf ("Cor: Branco");
     }
 }
