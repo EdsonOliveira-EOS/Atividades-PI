@@ -89,36 +89,36 @@ int main(){
     Cor = ((aniverdia * aniverdia) + (atualdia * atualdia) + (anivermes * anivermes) + (atualmes * atualmes) + (aniverano * aniverano) + (atualano * atualano)) % 11;
 
     if (Cor == 0){
-        printf ("Cor: Branco.");
+        printf ("Cor: Branco.\n");
     }
     else if (Cor == 1){
-        printf ("Cor: Vermelho.");
+        printf ("Cor: Vermelho.\n");
     }
     else if (Cor == 2){
-        printf ("Cor: Laranja.");
+        printf ("Cor: Laranja.\n");
     }
     else if (Cor == 3){
-        printf ("Cor: Amarelo");
+        printf ("Cor: Amarelo.\n");
     }
     else if (Cor == 4){
-        printf ("Cor: Verde");
+        printf ("Cor: Verde.\n");
     }
     else if (Cor == 5){
-        printf ("Cor: Azul");
+        printf ("Cor: Azul.\n");
     }
     else if (Cor == 6){
-        printf ("Cor: Roxo");
+        printf ("Cor: Roxo.\n");
     }
     else if (Cor == 7){
-        printf ("Cor: Marrom");
+        printf ("Cor: Marrom.\n");
     }
     else if (Cor == 8){
-        printf ("Cor: Rosa");
+        printf ("Cor: Rosa.\n");
     }
     else if (Cor == 9){
-        printf ("Cor: Preto");
+        printf ("Cor: Preto.\n");
     }
     else if (Cor == 10){
-        printf ("Cor: Branco");
+        printf ("Cor: Branco.\n");
     }
 }
