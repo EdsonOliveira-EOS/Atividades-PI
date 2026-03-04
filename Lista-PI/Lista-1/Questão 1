@@ -1,1 +1,134 @@
+// Felizmente não usei nenhuma fonte nessa questão, eu tive ajuda de amigos que corrigiram coisas bobas para mim e usei ajuda dos monitores, mas fora isso, não tive complicações na qual precisei do uso de IA ou de conteúdo WEB, tirando algumas coisas bobas como ''como colocar % no printf'. Bem, é isso.
 
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+
+    int aniverdia, anivermes, aniverano, atualdia, atualmes, atualano;
+    int Soma, Amor, Sorte, Trabalho, Cor;
+    scanf("%d/%d/%d %d/%d/%d", &aniverdia, &anivermes, &aniverano, &atualdia, &atualmes, &atualano);
+
+
+    // ------------------------------------------------------------------------------------------------------------------------
+    // Amor
+    Soma = aniverdia + anivermes + aniverano + atualdia + atualmes + atualano;
+    Amor = (Soma * 7) % 101;
+
+    if (Amor >= 90){
+        printf ("Amor: %d%% Um dia deslumbrantemente lindo para amar. Ps: Cuidado com a intensidade.\n", Amor);
+    }
+
+    else if (Amor >= 70 && Amor <= 80){
+        printf ("Amor: %d%% Saia com o coracao aberto, mas lembre, nem toda troca de olhar em onibus e sinal de romance.\n", Amor);
+    }
+
+    else if (Amor >= 41 && Amor <= 69){
+        printf ("Amor: %d%% Se o papo e as ideias baterem, esta liberado pensar em algo.", Amor);
+    }
+
+    else if (Amor >= 20 && Amor <= 40){
+        printf ("Amor: %d%% Melhor manter o coracao <3 longe de perigo.\n", Amor);
+    }
+
+    else{ 
+        printf ("Amor: %d%% Pessimo dia para se apaixonar.\n", Amor);
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------
+    // Sorte
+
+    int SomaSorteDias, SomaSorteMes, DiferencaAnos;
+    SomaSorteDias = (aniverdia + atualdia) * 7;
+    SomaSorteMes = (anivermes + atualmes) * 7;
+
+    DiferencaAnos = atualano - atualdia;
+
+    int Sorte;
+    Sorte = (SomaSorteDias + SomaSorteMes + DiferencaAnos) % 101;
+
+    if (Sorte >= 90){
+        printf ("Sorte: %d%% Nao tenha medo de virar cartas hoje. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
+    }
+
+    else if (Sorte >= 80 && Sorte <= 90){
+        printf ("Sorte: %d%% Hoje vale a pena arriscar. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
+    }
+
+    else if (Sorte >= 51 && Sorte <= 79){
+        printf ("Sorte: %d%% Por sua conta em risco. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
+    }
+
+    else if (Sorte >= 30 && Sorte <= 50){
+        printf ("Sorte: %d%% Melhor nao arriscar. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
+    }
+
+    else {
+        printf ("Sorte: %d%% Nem jogue moedas pra cima hoje. Sem tigrinho nem jogos de azar, por favor!\n", Sorte);
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------
+    // Trabalho
+
+    int trabalho;
+
+    Trabalho = (aniverano + atualano) - ((atualdia + aniverdia + anivermes + atualano) * 8) % 101;
+
+    if (Trabalho >= 85){
+        printf ("Trabalho: %d%% Use do maximo de networking possível hoje, dia bom para negocios.\n", Trabalho);
+    }
+    else if (Trabalho >= 84 && Trabalho <= 70){
+        printf ("Trabalho: %d%% Boas vibracoes hoje, chances podem estar ao seu redor.\n", Trabalho);
+    }
+    else if (Trabalho >= 51 && Trabalho <= 69){
+        printf ("Trabalho: %d%% Um dia proveitoso com certeza, leve sua simpatia consigo.\n", Trabalho);
+    }
+    else if (Trabalho >= 40 && Trabalho <= 50){
+        printf ("Trabalho: %d%% Segura a emocao, nao xinga ninguem, nao esquece de beber agua.\n", Trabalho);
+    }
+    else {
+        printf ("Trabalho: %d%% Hoje nao sera um dia tao proveitoso, keep calm e faca o basico.\n", Trabalho);
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------
+    // Trabalho
+
+    int Cor;
+
+    Cor = ((aniverdia * aniverdia)) + ((atualdia * atualdia) + (anivermes * anivermes) + (atualmes * atualmes) + (aniverano * aniverano) + (atualano * atualano)) % 11;
+
+    if (Cor = 0){
+        printf ("Cor: Branco.");
+    }
+    else if (Cor = 1){
+        printf ("Cor: Vermelho.");
+    }
+    else if (Cor = 2){
+        printf ("Cor: Laranja.");
+    }
+    else if (Cor = 3){
+        printf ("Cor: Amarelo");
+    }
+    else if (Cor = 4){
+        printf ("Cor: Verde");
+    }
+    else if (Cor = 5){
+        printf ("Cor: Azul");
+    }
+    else if (Cor = 6){
+        printf ("Cor: Roxo");
+    }
+    else if (Cor = 7){
+        printf ("Cor: Marrom");
+    }
+    else if (Cor = 8){
+        printf ("Cor: Rosa");
+    }
+    else if (Cor = 9){
+        printf ("Cor: Preto");
+    }
+    else if (Cor = 10){
+        printf ("Cor: Branco");
+    }
+}
