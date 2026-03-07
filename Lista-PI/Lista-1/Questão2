@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+
+    int inteiro, A, B;
+    scanf ("%d", &inteiro);
+    scanf ("%d %d", &A, &B);
+
+    // Soma dos números de 1 ao inteiro
+
+    int Somatotal = inteiro * (inteiro + 1) / 2;
+
+    // Achar os múltiplos de A
+
+    int MA = inteiro / A;
+    int SomaA = A * (MA * (MA + 1)) / 2;
+
+    // Achar os múltiplos de B
+
+    int MB = inteiro / B;
+    int SomaB = B * (MB * (MB + 1)) / 2;
+
+     // 4. Soma dos múltiplos de (A * B) para compensar a exclusão dupla:
+    int mAB = inteiro / (A * B);
+    int SomaAB = (A * B) * (mAB * (mAB + 1)) / 2;
+
+    // Cálculo da soma final
+    int resultado = Somatotal - SomaA - SomaB + SomaAB;
+
+    printf ("%d\n", resultado);
+    
+    if (resultado % 2 == 0) { 
+        printf("Lá ele!!!!\n"); 
+    } 
+    else {
+        printf("Opa xupenio AULAS...\n");
+    }
+}
