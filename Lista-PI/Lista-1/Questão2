@@ -1,3 +1,5 @@
+// Usei bastante a ajuda de IA na formulação das fórmulas e usei meu conhecimento próprio na formulação da estrutura em C.
+
 #include <stdio.h>
 #include <math.h>
 
