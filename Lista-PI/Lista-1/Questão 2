@@ -23,9 +23,16 @@ int main(){
     int MB = inteiro / B;
     int SomaB = B * (MB * (MB + 1)) / 2;
 
-     // 4. Soma dos múltiplos de (A * B) para compensar a exclusão dupla:
+     // 4. Soma dos múltiplos de A e B para compensar a exclusão dupla:
+    if (A!=B){
+        int MMCAB = A * B;
+    }
+    else{
+        int MMCAB = A;
+    }
+
     int mAB = inteiro / (A * B);
-    int SomaAB = (A * B) * (mAB * (mAB + 1)) / 2;
+    int SomaAB = MMCAB * (mAB * (mAB + 1)) / 2;
 
     // Cálculo da soma final
     int resultado = Somatotal - SomaA - SomaB + SomaAB;
