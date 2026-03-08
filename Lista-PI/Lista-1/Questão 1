@@ -121,4 +121,6 @@ int main(){
     else if (Cor == 10){
         printf ("Cor: Branco.\n");
     }
+
+    return 0;
 }
