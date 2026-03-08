@@ -1,7 +1,6 @@
-// Usei bastante a ajuda de IA na formulação das fórmulas e usei meu conhecimento próprio na formulação da estrutura em C.
+// Usei bastante a ajuda de IA na formulação das fórmulas e usei meu conhecimento próprio na formulação da estrutura em C, além de ajuda de alguns parceiros de cadeira.
 
 #include <stdio.h>
-#include <math.h>
 
 int main(){
 
