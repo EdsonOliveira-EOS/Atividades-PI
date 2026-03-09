@@ -1,4 +1,4 @@
-// Infelizmente tive bastante uso de IA (NotebookLM e ChatGpt) para desenvolver o código na parte da estrutura pois eu não estava entendendo tão bem o que o enunciado quis dizer, então fui na tentativa e erro enquanto eu aprendia métodos com a IA e aplicava os meus próprios, e depois de revisar tudo com a IA, eu mesmo fui e revisei o código novamente para entender o que eu mesmo codei e manter tudo na mente.
+// Infelizmente tive bastante uso de IA (NotebookLM, Claude e ChatGpt) para desenvolver o código na parte da estrutura pois eu não estava entendendo tão bem o que o enunciado quis dizer, então fui na tentativa e erro enquanto eu aprendia métodos com a IA e aplicava os meus próprios, e depois de revisar tudo com a IA, eu mesmo fui e revisei o código novamente para entender o que eu mesmo codei e manter tudo na mente.
 
 #include <stdio.h>
 
@@ -6,11 +6,8 @@ int main(){
     int dinheirorebeka = 3;
     int total, x, y, z;
 
-    // variáveis para testar os casos que ela adiciona
-    scanf ("%d", &total);
-    scanf ("%d", &x);
-    scanf ("%d", &y);
-    scanf ("%d", &z);
+    scanf("%d", &total);
+    scanf("%d %d %d", &x, &y, &z);
 
     int totalinvestimento1 = total + 1;
     int totalinvestimento2 = total + 2;
@@ -21,96 +18,99 @@ int main(){
         int parcela1 = (total * x) / 100;
         int parcela2 = (total * y) / 100;
         int parcela3 = (total * z) / 100;
-
         int sobrou = total - (parcela1 + parcela2 + parcela3);
-        
-        dinheirorebeka += sobrou;
-        printf ("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
-        divisaocompleta = 1;
 
+        dinheirorebeka += sobrou;
+        printf("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
+        divisaocompleta = 1;
     }
 
     else if ((totalinvestimento1 * x) % 100 == 0 && (totalinvestimento1 * y) % 100 == 0 && (totalinvestimento1 * z) % 100 == 0){
         int parcela1 = (totalinvestimento1 * x) / 100;
         int parcela2 = (totalinvestimento1 * y) / 100;
         int parcela3 = (totalinvestimento1 * z) / 100;
-
         int sobrou = totalinvestimento1 - (parcela1 + parcela2 + parcela3);
 
-        if (sobrou >= 1 + 1){
+        if (sobrou >= 2){
             dinheirorebeka -= 1;
             dinheirorebeka += sobrou;
-
-            printf ("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
+            printf("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
             divisaocompleta = 1;
         }
+        else{
+            printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+            printf("E parece que Rebeka vai ter que voltar andando...\n");
+            return 0;
+        }
     }
-
 
     else if ((totalinvestimento2 * x) % 100 == 0 && (totalinvestimento2 * y) % 100 == 0 && (totalinvestimento2 * z) % 100 == 0){
         int parcela1 = (totalinvestimento2 * x) / 100;
         int parcela2 = (totalinvestimento2 * y) / 100;
         int parcela3 = (totalinvestimento2 * z) / 100;
-
         int sobrou = totalinvestimento2 - (parcela1 + parcela2 + parcela3);
 
-        if (sobrou >= 2 + 1){
-            char letra1, letra2, letra3;
-            scanf (" %c %c %c", &letra1, &letra2, &letra3);
+        char letra1, letra2, letra3;
+        scanf(" %c %c %c", &letra1, &letra2, &letra3);
 
+        if (sobrou >= 3){
             int soma = (letra1 - 'a' + 1) + (letra2 - 'a' + 1) + (letra3 - 'a' + 1);
-            printf("%d\n", soma);
 
             dinheirorebeka -= 2;
             dinheirorebeka += sobrou;
 
-            printf ("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
+            printf("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
+            printf("%d\n", soma);
             divisaocompleta = 1;
         }
+        else{
+            printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+            printf("E parece que Rebeka vai ter que voltar andando...\n");
+            return 0;
+        }
     }
-    
+
     else if ((totalinvestimento3 * x) % 100 == 0 && (totalinvestimento3 * y) % 100 == 0 && (totalinvestimento3 * z) % 100 == 0){
         int parcela1 = (totalinvestimento3 * x) / 100;
         int parcela2 = (totalinvestimento3 * y) / 100;
         int parcela3 = (totalinvestimento3 * z) / 100;
-
         int sobrou = totalinvestimento3 - (parcela1 + parcela2 + parcela3);
 
-        if (sobrou >= 3 + 1){
-            int idade1, idade2, idade3;
-            scanf ("%d %d %d", &idade1, &idade2, &idade3);
+        int idade1, idade2, idade3;
+        scanf("%d %d %d", &idade1, &idade2, &idade3);
 
+        if (sobrou >= 4){
             if (idade1 % 3 == 0 || idade2 % 3 == 0 || idade3 % 3 == 0){
-
                 int parcelas = 0;
+                if (idade1 % 3 == 0) parcelas += idade1 / 3;
+                if (idade2 % 3 == 0) parcelas += idade2 / 3;
+                if (idade3 % 3 == 0) parcelas += idade3 / 3;
 
-                if (idade1 / 10 == 3) parcelas += 3;
-                if (idade1 % 10 == 3) parcelas += 3;
-                if (idade2 / 10 == 3) parcelas += 3;
-                if (idade2 % 10 == 3) parcelas += 3;
-                if (idade3 / 10 == 3) parcelas += 3;
-                if (idade3 % 10 == 3) parcelas += 3; 
-
-                printf ("%d\n", parcelas);
-                printf ("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
-                divisaocompleta = 1;
-                
                 dinheirorebeka -= 3;
                 dinheirorebeka += sobrou;
+
+                printf("Cada homem ficou com %d, %d e %d reais, respectivamente\n", parcela1, parcela2, parcela3);
+                printf("%d\n", parcelas);
+                divisaocompleta = 1;
             }
             else{
-                divisaocompleta = 0; // não achou solução
+                printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+                printf("E parece que Rebeka vai ter que voltar andando...\n");
+                return 0;
             }
+        }
+        else{
+            printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+            printf("E parece que Rebeka vai ter que voltar andando...\n");
+            return 0;
         }
     }
 
     if (divisaocompleta == 1){
-        if (dinheirorebeka >= 7){
-            printf ("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
-        }
-        else{
-            printf ("E parece que Rebeka vai ter que voltar andando...\n");
-        }
+        if (dinheirorebeka >= 7)
+            printf("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
+        else
+            printf("E parece que Rebeka vai ter que voltar andando...\n");
     }
     else{
         printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
