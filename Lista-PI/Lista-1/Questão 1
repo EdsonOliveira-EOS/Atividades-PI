@@ -30,7 +30,7 @@ int main(){
     //--------------------------------------------------------//
     // Trabalho
     int Trabalho = ((aniverano + atualano) - ((atualdia + aniverdia + anivermes + atualmes) * 8)) % 101;
-    if (Trabalho < 0) Trabalho += 101;
+    if (Trabalho < 0){Trabalho += 101;}
 
     if (Trabalho > 85){printf("Trabalho: %d%% Use do maximo de networking poss�vel hoje, dia bom para negocios.\n", Trabalho);}
     else if (Trabalho >= 70){printf("Trabalho: %d%% Boas vibracoes hoje, chances podem estar ao seu redor.\n", Trabalho);}
