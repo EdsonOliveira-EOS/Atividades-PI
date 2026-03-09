@@ -1,4 +1,4 @@
-// Infelizmente tive bastante uso de IA (NotebookLM, Claude e ChatGpt) para desenvolver o código na parte da estrutura pois eu não estava entendendo tão bem o que o enunciado quis dizer, então fui na tentativa e erro enquanto eu aprendia métodos com a IA e aplicava os meus próprios, e depois de revisar tudo com a IA, eu mesmo fui e revisei o código novamente para entender o que eu mesmo codei e manter tudo na mente.
+// Infelizmente tive uso de IA (NotebookLM, Claude e ChatGpt) para desenvolver o código na parte da estrutura pois eu não estava entendendo tão bem o que o enunciado quis dizer, então fui na tentativa e erro enquanto eu aprendia métodos com a IA e aplicava os meus próprios, e depois de revisar tudo com a IA, eu mesmo fui e revisei o código novamente para entender o que eu mesmo codei e manter tudo na mente.
 
 #include <stdio.h>
 
