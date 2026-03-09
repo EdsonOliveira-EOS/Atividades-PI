@@ -3,47 +3,33 @@
 #include <stdio.h>
 
 int main(){
+    long long N, A, B;
+    scanf("%lld", &N);
+    scanf("%lld %lld", &A, &B);
 
-    int inteiro, A, B;
-    scanf ("%d", &inteiro);
-    scanf ("%d %d", &A, &B);
+    // Soma de 1 ate N
+    long long SomaTotal = N * (N + 1) / 2;
 
-    // Soma dos números de 1 ao inteiro
+    // Soma dos multiplos de A ate N
+    long long MA = N / A;
+    long long SomaA = A * (MA * (MA + 1)) / 2;
 
-    int Somatotal = inteiro * (inteiro + 1) / 2;
+    // Soma dos multiplos de B ate N
+    long long MB = N / B;
+    long long SomaB = B * (MB * (MB + 1)) / 2;
 
-    // Achar os múltiplos de A
+    // Soma dos multiplos de A*B ate N (A e B sao primos, entao MC = A*B)
+    long long AB = A * B;
+    long long MAB = N / AB;
+    long long SomaAB = AB * (MAB * (MAB + 1)) / 2;
 
-    int MA = inteiro / A;
-    int SomaA = A * (MA * (MA + 1)) / 2;
+    // Inclusao-exclusao
+    long long resultado = SomaTotal - SomaA - SomaB + SomaAB;
 
-    // Achar os múltiplos de B
+    printf("%lld\n", resultado);
 
-    int MB = inteiro / B;
-    int SomaB = B * (MB * (MB + 1)) / 2;
-
-     // 4. Soma dos múltiplos de A e B para compensar a exclusão dupla:
-    if (A!=B){
-        int MMCAB = A * B;
-    }
-    else{
-        int MMCAB = A;
-    }
-
-    int mAB = inteiro / (A * B);
-    int SomaAB = MMCAB * (mAB * (mAB + 1)) / 2;
-
-    // Cálculo da soma final
-    int resultado = Somatotal - SomaA - SomaB + SomaAB;
-
-    printf ("%d\n", resultado);
-    
-    if (resultado % 2 == 0) { 
-        printf("Lá ele!!!!\n"); 
-    } 
-    else {
-        printf("Opa xupenio AULAS...\n");
-    }
+    if (resultado % 2 == 0){printf("Lá ele!!!\n");}
+    else{printf("Opa xupenio AULAS...\n");}
 
     return 0;
 }
