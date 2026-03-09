@@ -1,1 +1,42 @@
+// Com a pequena ajuda de um amigo para entender a lógica da questão (bem simples quando entende), depois disso só foi quesito de achar as soluções, com eu tendo feito algumas eu mesmo e depois procurando otimizar do melhor jeito possível, e acabei achando o jeito com switch. Eu também fiz o Claude dar uma olhada no código depois de terminado para achar erros possíveis.
 
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int x, y, quadrantebloqueado;
+    scanf("%d %d %d", &x, &y, &quadrantebloqueado);
+
+    int quadrante;
+    int passosx = abs(x) + 1;
+    int passosy = abs(y) + 1;
+
+    if (x > 0 && y > 0){quadrante = 1;}
+    else if (x < 0 && y > 0){quadrante = 2;}
+    else if (x < 0 && y < 0){quadrante = 3;}
+    else{quadrante = 4;}
+
+    switch (quadrante){
+        case 1:
+            if (quadrantebloqueado == 2){printf("%d passos em y e %d passos em x\n", passosy, passosx);}
+            else if (quadrantebloqueado == 4){printf("%d passos em x e %d passos em y\n", passosx, passosy);}
+            else{printf("caminhada invalida\n");}
+            break;
+        case 2:
+            if (quadrantebloqueado == 1){printf("%d passos em y e %d passos em x\n", passosy, passosx);}
+            else if (quadrantebloqueado == 3){printf("%d passos em x e %d passos em y\n", passosx, passosy);}
+            else{printf("caminhada invalida\n");}
+            break;
+        case 3:
+            if (quadrantebloqueado == 2){printf("%d passos em x e %d passos em y\n", passosx, passosy);}
+            else if (quadrantebloqueado == 4){printf("%d passos em y e %d passos em x\n", passosy, passosx);}
+            else{printf("caminhada invalida\n");}
+            break;
+        case 4:
+            if (quadrantebloqueado == 1){printf("%d passos em x e %d passos em y\n", passosx, passosy);}
+            else if (quadrantebloqueado == 3){printf("%d passos em y e %d passos em x\n", passosy, passosx);}
+            else{printf("caminhada invalida\n");}
+            break;
+    }
+    return 0;
+}
