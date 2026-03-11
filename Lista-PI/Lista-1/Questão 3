@@ -114,6 +114,7 @@ int main(){
     }
     else{
         printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+        printf("E parece que Rebeka vai ter que voltar andando...\n");
     }
 
     return 0;
