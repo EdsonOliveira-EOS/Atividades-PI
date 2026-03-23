@@ -1,4 +1,3 @@
-// Infelizmente tive que usar IA (Claude e NotebookLM) para achar os erros que eu fiz no código, fiz vários errinhos pequenos que foram se acumulando e eu acabei decidindo reestruturar o código inteiro enquanto eu testava o The Huxley, felizmente consegui terminar.
 #include <stdio.h>
 
 int main(){

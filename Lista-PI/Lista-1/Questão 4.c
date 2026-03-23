@@ -1,5 +1,3 @@
-// Com a pequena ajuda de um amigo para entender a lógica da questão (bem simples quando entende), depois disso só foi quesito de achar as soluções, com eu tendo feito algumas eu mesmo e depois procurando otimizar do melhor jeito possível, e acabei achando o jeito com switch. Eu também fiz o Claude dar uma olhada no código depois de terminado para achar erros possíveis.
-
 #include <stdio.h>
 #include <stdlib.h>
 

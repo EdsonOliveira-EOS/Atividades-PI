@@ -1,5 +1,3 @@
-// Usei a ajuda de IA(Chatgpt e NotebookLM) na formulação das fórmulas e usei meu conhecimento próprio na formulação da estrutura em C, além de ajuda de alguns parceiros de cadeira.
-
 #include <stdio.h>
 
 int main(){
