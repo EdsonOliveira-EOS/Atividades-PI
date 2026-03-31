@@ -1,14 +1,12 @@
 #include <stdio.h>
 
-int printmatrix (int m, int n, char matrix[m][n]){
+void printmatrix (int m, int n, char matrix[m][n]){
     for (int i = 0; i < m; i++){
         for (int j = 0; j < n; j++){
             printf ("%c", matrix[i][j]);
         }
         printf ("\n");
     }
-
-    return 0;
 }
 
 int main(void){
@@ -63,6 +61,5 @@ int main(void){
     }
 
     printmatrix(m, n, matrix);
-
     return 0;
 }
