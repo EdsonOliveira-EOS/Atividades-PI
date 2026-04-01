@@ -44,7 +44,6 @@ int main(void){
         }
         char temp2; scanf("%c", &temp2);
     }
-
     int meters = maze(lines, columns, xrebeka, yrebeka, 0, matriz);
     if (meters < 999999){
         printf("Apos correr %d metros e quase desistir por causa da distância, Rebeka conseguiu escapar!\n", meters);
