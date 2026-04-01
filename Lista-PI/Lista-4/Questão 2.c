@@ -23,14 +23,13 @@ int main(void){
     int x = 0;
     int y = 0;
 
+    matriz[y][x]++;
     for (int i = 0; i < 20; i++){
         scanf(" %c", &movement);
-        if (movement == 'c' && x > 0){x--;}
-        if (movement == 'b' && x < 3){x++;}
-        if (movement == 'e' && y > 0){y--;}
-        if (movement == 'd' && y < 3){y++;}
-
-        matriz[x][y]++;
+        if (movement == 'c' && y > 0){y--; matriz[y][x]++;}
+        else if (movement == 'b' && y < 3){y++; matriz[y][x]++;}
+        else if (movement == 'e' && x > 0){x--; matriz[y][x]++;}
+        else if (movement == 'd' && x < 3){x++; matriz[y][x]++;}
     }
 
     findmostvaluable(matriz);
