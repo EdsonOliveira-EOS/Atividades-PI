@@ -8,13 +8,13 @@ void findmostvaluable(int matriz[4][4]){
         for (int c = 0; c < 4; c++){
             if (matriz[l][c] > maxTerm){
                 maxTerm = matriz[l][c];
-                maxX = l;
-                maxY = c;
+                maxX = c;
+                maxY = l;
             }
 
         }
     }
-    printf("Coordenada X: %d, Y: %d\n", maxY, maxX);
+    printf("Coordenada X:%d, Y:%d\n", maxX, maxY);
 }
 
 int main(void){
