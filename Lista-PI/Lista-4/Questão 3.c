@@ -47,7 +47,6 @@ int main(void){
         }
         char temp2; scanf("%c", &temp2);
     }
-
     matriz[ycoordinatewater][xcoordinatewater] = '.'; // Isso daqui foi um comodismo porque eu tinha que fazer a recursão acabar quando a matriz em ij desse o para evitar dar problema, kk
     water(ycoordinatewater, xcoordinatewater, m, n, matriz);
     printmatriz(m, n, matriz);
