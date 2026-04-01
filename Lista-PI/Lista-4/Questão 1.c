@@ -15,6 +15,7 @@ int main(void){
     scanf("%d %d\n", &m, &n);
     // m = linhas
     // n = colunas
+
     char matrix[m][n];
 
     for (int i = 0; i < m; i++){
@@ -58,6 +59,7 @@ int main(void){
             }
         }        
     }
+
     printmatrix(m, n, matrix);
     return 0;
 }
