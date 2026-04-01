@@ -11,7 +11,7 @@ void water(int i, int j, int m, int n, char matriz[m][n]){
         water(i, j-1, m, n, matriz);
         water(i, j+1, m, n, matriz);
     }
-    else {
+    else if (i + 1 < m) {
         water(i+1, j, m, n, matriz);
     }
 }
