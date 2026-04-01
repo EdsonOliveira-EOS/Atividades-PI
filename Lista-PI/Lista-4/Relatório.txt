@@ -1,1 +1,3 @@
+Basicamente, para a resolução das questões usei da IA para dar uma montadinha na lógica e capturar os erros nas questões, fiz questão de mandar as questões para o Claude junto do enunciado para o Claude conferir possíveis erros, e apenas quando a IA teve total certeza e depois de eu confirmar o código várias vezes, que teve o commit dos códigos.
 
+Se teve algum erro aí eu choro, mas eu fiz meu máximo.
