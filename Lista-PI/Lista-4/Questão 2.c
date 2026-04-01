@@ -14,7 +14,7 @@ void findmostvaluable(int matriz[4][4]){
 
         }
     }
-    printf ("Coordenada X: %d, Y: %d\n", maxX, maxY);
+    printf("Coordenada X: %d, Y: %d\n", maxY, maxX);
 }
 
 int main(void){
