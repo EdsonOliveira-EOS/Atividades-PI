@@ -6,15 +6,12 @@ int maze(int lines, int columns, int xrebeka, int yrebeka, int amountofmeters, c
     if (matriz[yrebeka][xrebeka] == '#' || matriz[yrebeka][xrebeka] == 'X') return 999999;
     if (matriz[yrebeka][xrebeka] == 'd') return amountofmeters;
 
-    char original = matriz[yrebeka][xrebeka];
     matriz[yrebeka][xrebeka] = 'X'; // para ela não ficar voltando imediatamente pelo lugar que veio e ficar dando loop
 
     int a = maze(lines, columns, xrebeka - 1, yrebeka, amountofmeters + 1, matriz);
     int b = maze(lines, columns, xrebeka + 1, yrebeka, amountofmeters + 1, matriz);
     int c = maze(lines, columns, xrebeka, yrebeka - 1, amountofmeters + 1, matriz);
     int d = maze(lines, columns, xrebeka, yrebeka + 1, amountofmeters + 1, matriz);
-
-    matriz[yrebeka][xrebeka] = original;
 
     int min;
     if (a < b){min = a;} 
