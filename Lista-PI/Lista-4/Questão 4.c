@@ -1,42 +1,62 @@
 #include <stdio.h>
 
-int maze(int lines, int columns, int xrebeka, int yrebeka, int amountofmeters, char matriz[lines][columns]){
+int bfs(int lines, int columns, int xrebeka, int yrebeka, char matriz[lines][columns]){
+    int visited[lines][columns];
+    for (int i = 0; i < lines; i++)
+        for (int j = 0; j < columns; j++)
+            visited[i][j] = 0;
 
-    if (xrebeka >= columns || xrebeka < 0 || yrebeka >= lines || yrebeka < 0) return 999999;
-    if (matriz[yrebeka][xrebeka] == '#' || matriz[yrebeka][xrebeka] == 'X') return 999999;
-    if (matriz[yrebeka][xrebeka] == 'd') return amountofmeters;
+    int tamanho = lines * columns;
+    int qx[tamanho];
+    int qy[tamanho];
+    int qdist[tamanho];
+    int front = 0, back = 0;
 
-    char original = matriz[yrebeka][xrebeka];
-    matriz[yrebeka][xrebeka] = 'X'; // para ela n�o ficar voltando imediatamente pelo lugar que veio e ficar dando loop
+    qx[back] = xrebeka;
+    qy[back] = yrebeka;
+    qdist[back] = 0;
+    back++;
+    visited[yrebeka][xrebeka] = 1;
 
-    int a = maze(lines, columns, xrebeka - 1, yrebeka, amountofmeters + 1, matriz);
-    int b = maze(lines, columns, xrebeka + 1, yrebeka, amountofmeters + 1, matriz);
-    int c = maze(lines, columns, xrebeka, yrebeka - 1, amountofmeters + 1, matriz);
-    int d = maze(lines, columns, xrebeka, yrebeka + 1, amountofmeters + 1, matriz);
+    while (front < back){
+        int cx = qx[front];
+        int cy = qy[front];
+        int cd = qdist[front];
+        front++;
 
-    matriz[yrebeka][xrebeka] = original;
+        if (matriz[cy][cx] == 'd') return cd;
 
-    int min;
-    if (a < b){min = a;} 
-    else {min = b;}
-    if (c < min){min = c;}
-    if (d < min){min = d;}
-    return min;
+        int dx[] = {-1, 1, 0, 0};
+        int dy[] = {0, 0, -1, 1};
+
+        for (int i = 0; i < 4; i++){
+            int nx = cx + dx[i];
+            int ny = cy + dy[i];
+
+            if (nx < 0 || nx >= columns || ny < 0 || ny >= lines) continue;
+            if (visited[ny][nx]) continue;
+            if (matriz[ny][nx] == '#') continue;
+
+            visited[ny][nx] = 1;
+            qx[back] = nx;
+            qy[back] = ny;
+            qdist[back] = cd + 1;
+            back++;
+        }
+    }
+    return 999999;
 }
 
 int main(void){
-
     int lines, columns;
     scanf("%dx%d\n", &lines, &columns);
     char matriz[lines][columns];
-
     int xrebeka = 0, yrebeka = 0;
     for (int i = 0; i < lines; i++){
         for (int j = 0; j < columns; j++){
             char temp;
             scanf("%c", &temp);
             matriz[i][j] = temp;
-
             if (temp == 'o'){
                 xrebeka = j;
                 yrebeka = i;
@@ -44,8 +64,7 @@ int main(void){
         }
         char temp2; scanf("%c", &temp2);
     }
-
-    int meters = maze(lines, columns, xrebeka, yrebeka, 0, matriz);
+    int meters = bfs(lines, columns, xrebeka, yrebeka, matriz);
     if (meters < 999999){
         printf("Apos correr %d metros e quase desistir por causa da dist�ncia, Rebeka conseguiu escapar!\n", meters);
     } else {
