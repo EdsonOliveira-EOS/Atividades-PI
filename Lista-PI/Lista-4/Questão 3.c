@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 // Recurs�ozinha que eu preferi fazer para essa quest�o para ficar simples
 void water(int i, int j, int m, int n, char matriz[m][n]){
     if (i >= m || i < 0 || j >= n || j < 0) return;
