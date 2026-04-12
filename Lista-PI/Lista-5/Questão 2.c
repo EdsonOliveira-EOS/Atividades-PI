@@ -1,15 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void checknull(void* pointer){
-    if (pointer == NULL){
-        printf("Erro ao alocar memoria!\n");
-        exit(1);
-    }
-}
+void checknull(void* pointer);
 
 int main(void){
-
     int* lista = NULL;
     int n;
     int tamanho = 0;
@@ -26,7 +20,7 @@ int main(void){
     int* arrayodds = malloc (tamanho * sizeof(int));
     checknull(arrayodds);
     int sizeo = 0;
-    
+
     int* arraypairs = malloc (tamanho * sizeof(int));
     checknull(arraypairs);
     int sizep = 0;
@@ -52,4 +46,13 @@ int main(void){
     printf ("Vou visitar esses lugares de novo... algum dia.");
 
     free(lista);
+    free(arrayodds);
+    free(arraypairs);
+}
+
+void checknull(void* pointer){
+    if (pointer == NULL){
+        printf("Erro ao alocar memoria!\n");
+        exit(1);
+    }
 }
