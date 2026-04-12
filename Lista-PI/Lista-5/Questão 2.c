@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void checknull(void* pointer);
-
+// --------------------------------------------------------------
 int main(void){
     int* lista = NULL;
     int n;
@@ -49,7 +49,7 @@ int main(void){
     free(arrayodds);
     free(arraypairs);
 }
-
+// --------------------------------------------------------------
 void checknull(void* pointer){
     if (pointer == NULL){
         printf("Erro ao alocar memoria!\n");

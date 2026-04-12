@@ -10,7 +10,7 @@ void calcularAcimaDaMedia(float* notas, int n, float mid);
 void calcularMediana(float* notas, int n);
 void calcularModa(float* notas, int n);
 void operations(float* notas, int n);
-
+// --------------------------------------------------------------
 int main(void){
     int n;
     scanf("%d", &n);
