@@ -42,7 +42,7 @@ int main(void){
     for (int i = 0; i < counte; i++){
         printf ("%d\n", evenNumbers[i]);
     }
-    printf ("Vou visitar esses lugares de novo... algum dia.");
+    printf ("Vou visitar esses lugares de novo... algum dia.\n");
 
     free(list);
     free(oddnumbers);
