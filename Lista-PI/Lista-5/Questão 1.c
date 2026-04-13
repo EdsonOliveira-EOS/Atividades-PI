@@ -1,173 +1,180 @@
+// Refazendo para treinar
+
 #include <stdio.h>
 #include <stdlib.h>
 
-void checknull(void* pointer);
-float* LerNotas(float* notas, int n);
-float* PlaceNewNotes(float* notas, int n, int newsize);
-float calcularMedia(float* notas, int n);
-void calcularMaiorMenor(float* notas, int n);
-void calcularAcimaDaMedia(float* notas, int n, float mid);
-void calcularMediana(float* notas, int n);
-void calcularModa(float* notas, int n);
-void operations(float* notas, int n);
-// --------------------------------------------------------------
+void checknull (void* pointer);
+// ----------------------------------------------------
+float* getgrades(float* StudentGrades, int n);
+float* getnewgrades(float* NewGrades, int newsize, int n);
+// ----------------------------------------------------
+void operations(float* StudentGrades, int n);
+
+float medium (float* StudentGrades, int n);
+void grading(float* StudentGrades, int n);
+void abovemedium(float* StudentGrades, int n, float medium);
+void median(float* StudentGrades, int n);
+void mode(float* StudentGrades, int n);
+// ----------------------------------------------------
 int main(void){
+
     int n;
-    scanf("%d", &n);
+    scanf ("%d", &n);
 
-    float* notas = malloc(n * sizeof(float));
-    checknull(notas);
-    LerNotas(notas, n);
+    float* StudentGrades = malloc(n * sizeof(float));
+    checknull (StudentGrades);
 
-    printf("Relatorio inicial\n");
-    operations(notas, n);
+    printf ("Relatorio inicial\n");
+    getgrades(StudentGrades, n);
+    operations(StudentGrades, n);
 
     int k;
     scanf("%d", &k);
-
-    float* temp = realloc(notas, (n + k) * sizeof(float));
-    checknull(temp);
-    notas = temp;
-
     int newsize = n + k;
-    PlaceNewNotes(notas, n, newsize);
 
-    printf("Relatorio atualizado\n");
-    operations(notas, newsize);
+    float* NewGrades = realloc(StudentGrades, newsize * sizeof(float));
+    checknull(NewGrades);
+    StudentGrades = NewGrades;
+    printf ("Relatorio atualizado\n");
 
-    free(notas);
-    return 0;
+    getnewgrades(StudentGrades, newsize, n);
+    operations(StudentGrades, newsize);
+
+    free(StudentGrades);
+
 }
-// --------------------------------------------------------------
-void checknull(void* pointer){
+// ----------------------------------------------------
+void checknull (void* pointer){
     if (pointer == NULL){
-        printf("Erro ao alocar memoria!\n");
+        printf ("Memoria não alocada\n");
         exit(1);
     }
 }
-// --------------------------------------------------------------
-float* LerNotas(float* notas, int n){
+// ----------------------------------------------------
+float* getgrades(float* StudentGrades, int n){
+
     for (int i = 0; i < n; i++){
         float temp;
         scanf("%f", &temp);
-        notas[i] = temp;
+        StudentGrades[i] = temp;
     }
-    return notas;
+    return StudentGrades;
 }
-// --------------------------------------------------------------
-float* PlaceNewNotes(float* notas, int n, int newsize){
+// ----------------------------------------------------
+float* getnewgrades(float* StudentGrades, int newsize, int n){
     for (int i = n; i < newsize; i++){
         float temp;
-        scanf ("%f", &temp);
-        notas[i] = temp;
+        scanf("%f", &temp);
+        StudentGrades[i] = temp;
     }
-    return notas;
+    return StudentGrades;
 }
-// --------------------------------------------------------------
-float calcularMedia(float* notas, int n){
-    float mid = 0.00;
-    for (int i = 0; i < n; i++){
-        mid += notas[i];
-    }
-    mid /= n;
-    return mid;
-}
-// --------------------------------------------------------------
-void calcularMaiorMenor(float* notas, int n){
-    int best = 0;
-    float bestnote = notas[0];
-    int worst = 0;
-    float worstnote = notas[0];
+// ----------------------------------------------------
+void operations(float* StudentGrades, int n){
 
-    for (int i = 1; i < n; i++){
-        if (notas[i] > bestnote){
-            best = i;
-            bestnote = notas[i];
-        }
-        if (notas[i] < worstnote){
-            worst = i;
-            worstnote = notas[i];
-        }
-    }
-    printf("Maior nota: %.2f (aluno %d)\n", bestnote, best + 1);
-    printf("Menor nota: %.2f (aluno %d)\n", worstnote, worst + 1);
+    float avg = medium(StudentGrades, n);
+
+    grading(StudentGrades, n);
+    abovemedium(StudentGrades, n, avg);
+    median(StudentGrades, n);
+    mode(StudentGrades, n);
+
+    printf ("\n");
 }
-// --------------------------------------------------------------
-void calcularAcimaDaMedia(float* notas, int n, float mid){
-    int aboveaverage = 0;
+// ----------------------------------------------------
+float medium (float* StudentGrades, int n){
+    float medium = 0;
     for (int i = 0; i < n; i++){
-        if (notas[i] > mid){
-            aboveaverage++;
-        }
-    }
-    printf("Acima da media: %d\n", aboveaverage);
+        medium += StudentGrades[i];
+    } medium /= n;
+    printf ("Media: %.2f\n", medium);
+
+    return medium;
 }
-// --------------------------------------------------------------
-void calcularMediana(float* notas, int n){
-    float* arr = malloc(n * sizeof(float));
-    checknull(arr);
+// ----------------------------------------------------
+void grading(float* StudentGrades, int n){
+    float bestgrade = 0, worstgrade = 11;
+    int bestidx = 0, worstidx = 0;
 
     for (int i = 0; i < n; i++){
-        arr[i] = notas[i];
+        if (StudentGrades[i] > bestgrade){
+            bestgrade = StudentGrades[i];
+            bestidx = i+1;
+        }
+        if (StudentGrades[i] < worstgrade){
+            worstgrade = StudentGrades[i];
+            worstidx = i+1;
+        }
     }
+    printf ("Maior nota: %.2f (aluno %d)\n", bestgrade, bestidx);
+    printf ("Menor nota: %.2f (aluno %d)\n", worstgrade, worstidx);
+}
+// ----------------------------------------------------
+void abovemedium(float* StudentGrades, int n, float medium){
+    int StudentsAboveMedium = 0;
 
+    for (int i = 0; i < n; i++){
+        if (StudentGrades[i] > medium){
+            StudentsAboveMedium++;
+        }
+    }
+    printf ("Acima da media: %d\n", StudentsAboveMedium);
+}
+// ----------------------------------------------------
+void median(float* StudentGrades, int n){
+    
+    float* crescentgrades = malloc(n * sizeof(float));
+    checknull(crescentgrades);
+
+    for (int i = 0; i < n; i++){
+        crescentgrades[i] = StudentGrades[i];
+    }
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n - i - 1; j++){
-            if (arr[j] > arr[j+1]){
-                float temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+            if (crescentgrades[j] > crescentgrades[j+1]){
+                float temp = crescentgrades[j];
+                crescentgrades[j] = crescentgrades[j+1];
+                crescentgrades[j+1] = temp;
             }
         }
     }
 
-    float medium = 0;
-    if (n % 2 != 0){
-        medium = arr[(n / 2)];
-    } else {
-        medium = ((arr[(n / 2) - 1] + arr[(n / 2)]) / 2);
-    }
-    printf("Mediana: %.2f\n", medium);
-    free(arr);
+    float median = 0;
+    if (n % 2 == 0){median = (((crescentgrades[n / 2]) + (crescentgrades[(n / 2) - 1])) / 2);} 
+    else {median = crescentgrades[(n / 2)];}
+
+    printf ("Mediana: %.2f\n", median);
+    free(crescentgrades);
 }
-// --------------------------------------------------------------
-void calcularModa(float* notas, int n){
+// ----------------------------------------------------
+void mode(float* StudentGrades, int n){
     int maxfrequency = 0;
-    float moda = 0;
+    float modegrade = 0;
     int unique = 1;
 
     for (int i = 0; i < n; i++){
-        int freq = 0;
+        int frequency = 0;
         for (int j = 0; j < n; j++){
-            if (notas[i] == notas[j]){
-                freq++;
+            if (StudentGrades[i] == StudentGrades[j]){
+                frequency++;
             }
         }
-        if (maxfrequency < freq){
-            maxfrequency = freq;
-            moda = notas[i];
+        if (frequency > maxfrequency){
+            modegrade = StudentGrades[i];
+            maxfrequency = frequency;
             unique = 1;
-        }
-        else if (maxfrequency == freq && notas[i] != moda){
+        } 
+        else if (frequency == maxfrequency && modegrade != StudentGrades[i]){
             unique = 0;
         }
     }
 
     if (maxfrequency <= 1){
-        printf("Moda: Nao ha moda unica\n");
-    } else if (unique){
-        printf("Moda: %.2f\n", moda);
-    } else {
-        printf("Moda: Nao ha moda unica\n");
+        printf ("Moda: Nao ha moda unica\n");
     }
-}
-// --------------------------------------------------------------
-void operations(float* notas, int n){
-    float mid = calcularMedia(notas, n);
-    printf("Media: %.2f\n", mid);
-    calcularMaiorMenor(notas, n);
-    calcularAcimaDaMedia(notas, n, mid);
-    calcularMediana(notas, n);
-    calcularModa(notas, n);
-    printf("\n");
+    else if (unique){
+        printf ("Moda: %.2f\n", modegrade);
+    } else {
+        printf ("Moda: Nao ha moda unica\n");
+    }
 }

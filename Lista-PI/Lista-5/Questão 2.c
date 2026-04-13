@@ -1,58 +1,57 @@
+// Refazendo a questão para treino
+
 #include <stdio.h>
 #include <stdlib.h>
 
 void checknull(void* pointer);
-// --------------------------------------------------------------
+
 int main(void){
-    int* lista = NULL;
+
+    int* list = NULL; // Sempre é bom começar um ponteiro com NULL e não com 0 caso não guardar nada
     int n;
-    int tamanho = 0;
+    int size = 0;
 
     while (scanf("%d", &n) != EOF){
-        tamanho++;
-        int* temp = realloc (lista, tamanho * sizeof(int));
+        size++;
+        int* temp = realloc(list, size * sizeof(int));
         checknull(temp);
-        lista = temp;
-        lista[tamanho - 1] = n;
-    }
+        list = temp;
+        list[size - 1] = n;
+    } // Com isso eu tenho a lista enorme com as entradas
     printf ("Mais um bom dia de trabalho!\n");
 
-    int* arrayodds = malloc (tamanho * sizeof(int));
-    checknull(arrayodds);
-    int sizeo = 0;
+    int* oddnumbers = malloc(size * sizeof(int));
+    int* evenNumbers = malloc(size * sizeof(int));
+    checknull(oddnumbers);
+    checknull(evenNumbers);
+    int counto = 0, counte = 0;
 
-    int* arraypairs = malloc (tamanho * sizeof(int));
-    checknull(arraypairs);
-    int sizep = 0;
-
-    for (int i = 0; i < tamanho; i++){
-        if (lista[i] % 2 != 0){
-            arrayodds[sizeo] = lista[i];
-            sizeo++;
+    for (int i = 0; i < size; i++){
+        if (list[i] % 2 != 0){
+            oddnumbers[counto] = list[i];
+            counto++;
         } else {
-            arraypairs[sizep] = lista[i];
-            sizep++;
+            evenNumbers[counte] = list[i];
+            counte++;
         }
     }
 
-    // Printar os ímpares
-    for (int i = 0; i < sizeo; i++){
-        printf ("%d\n", arrayodds[i]);
+    for (int i = 0; i < counto; i++){
+        printf("%d\n", oddnumbers[i]);
     }
-    // Printar os ímpares
-    for (int i = 0; i < sizep; i++){
-        printf ("%d\n", arraypairs[i]);
+    for (int i = 0; i < counte; i++){
+        printf ("%d\n", evenNumbers[i]);
     }
     printf ("Vou visitar esses lugares de novo... algum dia.");
 
-    free(lista);
-    free(arrayodds);
-    free(arraypairs);
+    free(list);
+    free(oddnumbers);
+    free(evenNumbers);
 }
-// --------------------------------------------------------------
+
 void checknull(void* pointer){
     if (pointer == NULL){
-        printf("Erro ao alocar memoria!\n");
+        printf ("Memória não disponível\n");
         exit(1);
     }
 }
