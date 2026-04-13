@@ -3,7 +3,7 @@
 #include <string.h>
 
 void checknull(void* pointer);
-
+// --------------------------------------------------
 int main(void){
     int n;
     scanf("%d", &n);
@@ -84,7 +84,7 @@ int main(void){
 
     return 0;
 }
-
+// --------------------------------------------------
 void checknull(void* pointer){
     if (pointer == NULL){
         printf("Erro ao alocar memoria!\n");
