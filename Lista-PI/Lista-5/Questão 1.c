@@ -5,8 +5,8 @@
 
 void checknull (void* pointer);
 // ----------------------------------------------------
-float* getgrades(float* StudentGrades, int n);
-float* getnewgrades(float* NewGrades, int newsize, int n);
+void getgrades(float* StudentGrades, int n);
+void getnewgrades(float* NewGrades, int newsize, int n);
 // ----------------------------------------------------
 void operations(float* StudentGrades, int n);
 
@@ -51,23 +51,21 @@ void checknull (void* pointer){
     }
 }
 // ----------------------------------------------------
-float* getgrades(float* StudentGrades, int n){
+void getgrades(float* StudentGrades, int n){
 
     for (int i = 0; i < n; i++){
         float temp;
         scanf("%f", &temp);
         StudentGrades[i] = temp;
     }
-    return StudentGrades;
 }
 // ----------------------------------------------------
-float* getnewgrades(float* StudentGrades, int newsize, int n){
+void getnewgrades(float* StudentGrades, int newsize, int n){
     for (int i = n; i < newsize; i++){
         float temp;
         scanf("%f", &temp);
         StudentGrades[i] = temp;
     }
-    return StudentGrades;
 }
 // ----------------------------------------------------
 void operations(float* StudentGrades, int n){
