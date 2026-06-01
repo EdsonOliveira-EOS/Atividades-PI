@@ -16,7 +16,6 @@ typedef struct Tarefa {
 } Tarefa;
 
 void inserir (int id, int prioridade, Tarefa **startpointer, Tarefa **endpointer){
-
     Tarefa *nova = malloc(sizeof(Tarefa));
     checknull(nova);
 

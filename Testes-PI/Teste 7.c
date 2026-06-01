@@ -70,7 +70,7 @@ int main (void){
         protocolo[i] = malloc(sizeof(Nodo) + q * sizeof(Modulo));
         if (protocolo[i] == NULL){
             printf ("Erro de Alocação\n");
-            for (int k = 0; k < i; i++){
+            for (int k = 0; k < i; k++){
                 free(protocolo[k]);
             }
             exit(1);

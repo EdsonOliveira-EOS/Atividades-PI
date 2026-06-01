@@ -135,6 +135,5 @@ int main() {
     while (fila_requisicoes_inicio != NULL) {
         dequeue(&fila_requisicoes_inicio, &fila_requisicoes_fim);
     }
-
     return 0;
 }
